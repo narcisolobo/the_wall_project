@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>The Wall - Login & Registration</title>
+  <meta name="description" content="Coding Dojo assignment for Full Stack Django.">
+  <meta name="author" content="Narciso Lobo">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'the_wall/css/style.css' %}">
+</head>
+
+<body>
+  <div class="container mt-3 w-50">
+    {% if messages %}
+    <div class="card mb-4 text-white bg-danger">
+      <h5 class="card-header">Error</h5>
+      <div class="card-body">
+        {% for message in messages %}
+        {% if message.tags %}
+        <p class="card-text">{{ message }}</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    <div class="card-deck">
+      <div class="card border-primary">
+        <h3 class="card-header">REGISTER</h3>
+        <div class="card-body text-secondary">
+          <form action="/process" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="first-name">First Name:</label>
+              <input type="text" class="form-control" name="first-name" id="first-name">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name:</label>
+              <input type="text" class="form-control" name="last-name" id="last-name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input type="email" class="form-control" name="email" id="email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <div class="form-group">
+              <label for="password-confirm">Confirm Password:</label>
+              <input type="password" class="form-control" name="password-confirm" id="password-confirm">
+            </div>
+            <footer>
+              <button type="submit" class="btn btn-primary btn-block mt-1">REGISTER</button>
+            </footer>
+          </form>
+        </div>
+      </div>
+      <div class="card border-primary">
+        <h3 class="card-header">LOGIN</h3>
+        <div class="card-body text-secondary">
+          <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="login-email">Email:</label>
+              <input type="email" class="form-control" name="login-email" id="login-email">
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password:</label>
+              <input type="password" class="form-control" name="login-password" id="login-password">
+            </div>
+            <footer>
+              <button type="submit" class="btn btn-primary btn-block mt-1">LOG IN</button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

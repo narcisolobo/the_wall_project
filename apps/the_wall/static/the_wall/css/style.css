@@ -1,0 +1,29 @@
+body {
+    padding-top: 4.5rem;
+    background-color: #c2ddf0;
+}
+
+.logo {
+    width:48px;
+}
+
+nav {
+    border-bottom: 1px solid #2E7DB6;
+}
+
+.text-shadow {
+    color: white;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.message-pic {
+    width: 128px;
+}
+
+.comment-pic {
+    width: 64px;
+}
